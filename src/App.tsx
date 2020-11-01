@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import classnames from 'classnames';
 
 import s from './App.module.scss';
 import './custom.css';
 
-const App = () => {
+const App: FunctionComponent= () => {
     return (
         <div>
             <div className={s.header}>Welcome!</div>
