@@ -8,7 +8,7 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     },
     mode: NODE_ENV || 'development',
-    entry: path.resolve(__dirname, 'src/index.js'),
+    entry: path.resolve(__dirname, 'src/index.tsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js'
@@ -24,6 +24,7 @@ module.exports = {
                 test: /\.(c|sa|sc)ss?$/,
                 use: [
                     'style-loader', 
+                    { loader: "css-modules-typescript-loader"},  // to generate a .d.ts module next to the .scss file (also requires a declaration.d.ts with "declare modules '*.scss';" in it to tell TypeScript that "import styles from './styles.scss';" means to load the module "./styles.scss.d.td")
                     {
                         loader: 'css-loader',
                         options:
