@@ -51,16 +51,4 @@ module.exports = {
         hot: true,
     },
     devtool: 'source-map',
-
-    "husky": {
-        "hooks": {
-          "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx,json,css}": [
-          "yarn pretty-quick --staged",
-          "yarn lint"
-        ]
-    }
 };
