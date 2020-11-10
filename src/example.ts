@@ -23,5 +23,4 @@ interface MyArray<T> {
 	[N: number]: T;
 
 	reduce<U>(fn: (accum: U,  el: T) => U ) : U;
-}
-*/
+}*/
