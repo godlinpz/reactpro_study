@@ -60,7 +60,7 @@ module.exports = {
     "lint-staged": {
         "src/**/*.{js,jsx,ts,tsx,json,css}": [
           "yarn pretty-quick --staged",
-          "yarn eslint ./src"
+          "yarn lint"
         ]
     }
 };
