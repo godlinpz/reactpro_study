@@ -1,0 +1,64 @@
+@import '../../variables';
+@import '../../breakpoints';
+
+.root {
+    min-height: 100vh;
+    background: linear-gradient(180deg, $third 0%, $primary 100%);
+}
+
+.contentWrap {
+    padding-top: 65px;
+    padding-bottom: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 63px - 75px);
+
+    @include media('>=tablet', '<desktop') {
+        flex-direction: column-reverse;
+    }
+
+    div {
+        flex-grow: 1;
+    }
+}
+
+.contentText {
+    max-width: 516px;
+    width: 50%;
+
+    @include media('>=tablet', '<desktop') {
+        margin-top: -100px;
+        width: 100%;
+        max-width: none;
+        text-align: center;
+    }
+
+    p {
+        font-size: 32px;
+        line-height: 37px;
+        margin-bottom: 64px;
+    }
+}
+
+.buttonRow {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include media('>=tablet', '<desktop') {
+        justify-content: center;
+    }
+}
+
+.heading {
+    margin-bottom: 64px;
+}
+
+.contentParallax {
+    width: 50%;
+
+    @include media('>=tablet', '<desktop') {
+        width: 100%;
+    }
+}

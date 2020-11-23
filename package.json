@@ -14,11 +14,15 @@
     "license": "MIT",
     "dependencies": {
         "classnames": "^2.2.6",
+        "hookrouter": "^1.2.3",
         "react": "^17.0.1",
-        "react-dom": "^17.0.1"
+        "react-dom": "^17.0.1",
+        "url": "^0.11.0"
     },
     "devDependencies": {
+        "@svgr/webpack": "^5.4.0",
         "@types/classnames": "^2.2.11",
+        "@types/hookrouter": "^2.2.3",
         "@types/node-sass": "^4.11.1",
         "@types/react": "^16.9.55",
         "@types/react-dom": "^16.9.9",
@@ -37,6 +41,7 @@
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-react": "^7.21.5",
         "eslint-plugin-react-hooks": "^4.2.0",
+        "file-loader": "^6.2.0",
         "html-webpack-plugin": "^4.5.0",
         "husky": "^4.3.0",
         "lint-staged": "^10.5.1",
@@ -47,19 +52,20 @@
         "style-loader": "^2.0.0",
         "ts-loader": "^8.0.6",
         "typescript": "^4.0.3",
+        "url-loader": "^4.1.1",
         "webpack": "4.44.2",
         "webpack-cli": "3.3.12",
         "webpack-dev-server": "^3.11.0"
     },
     "husky": {
-      "hooks": {
-        "pre-commit": "lint-staged"
-      }
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
     },
     "lint-staged": {
         "src/**/*.{js,jsx,ts,tsx,json,css}": [
-          "yarn pretty-quick --staged",
-          "yarn lint"
+            "yarn pretty-quick --staged",
+            "yarn lint"
         ]
-    }    
+    }
 }

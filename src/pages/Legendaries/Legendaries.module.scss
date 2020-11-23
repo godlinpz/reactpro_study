@@ -1,0 +1,30 @@
+@import '../../variables';
+
+.root {
+    min-height: 100vh;
+    background: linear-gradient(180deg, $third 0%, $primary 100%);
+}
+
+.contentWrap {
+    color: black;
+
+    h1 {
+        font-family: Karla;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 72px;
+        line-height: 84px;
+        letter-spacing: 4px;
+
+        color: #000000;
+    }
+}
+
+.contentText {
+    color: black;
+    padding-top: 0.67em;
+}
+
+.contentParallax {
+    color: black;
+}

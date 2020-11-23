@@ -1,16 +1,24 @@
 import React, { FunctionComponent } from 'react';
-import classnames from 'classnames';
+// import classnames from 'classnames';
+import { useRoutes } from 'hookrouter';
 
-import s from './App.module.scss';
-import './custom.css';
+// import s from './App.module.scss';
+// import './custom.css';
+
+import Header from './components/Header';
+import NotFoundPage from './pages/NotFound';
+import routes from './routes';
 
 const App: FunctionComponent = () => {
-    return (
-        <div>
-            <div className={s.header}>Welcome!</div>
-            <div className={classnames('color')}>React is hot!</div>
-            <p>Привет</p>
-        </div>
+    const routeResult = useRoutes(routes);
+
+    return routeResult ? (
+        <>
+            <Header />
+            {routeResult}
+        </>
+    ) : (
+        <NotFoundPage />
     );
 };
 
