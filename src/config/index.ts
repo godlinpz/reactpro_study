@@ -11,7 +11,16 @@ export const config = {
                 url: {
                     pathname: 'pokemons',
                 },
+                url_params: [''],
                 default_page_size: 9,
+            },
+            getPokemon: {
+                method: 'GET',
+                url: {
+                    pathname: 'pokemon',
+                },
+                url_params: ['id'],
+                default_page_size: 0,
             },
         },
     },

@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import classnames from 'classnames';
+import { navigate } from 'hookrouter';
+import { EMenuLinks } from '../../routes';
 
 import Heading from '../Heading';
 
@@ -7,9 +9,10 @@ import s from './PokemonCard.module.scss';
 
 interface PokemonCardProps {
     pokemon: any;
+    tabIndex: number;
 }
 
-const PokemonCard: FunctionComponent<PokemonCardProps> = ({ children, pokemon }) => {
+const PokemonCard: FunctionComponent<PokemonCardProps> = ({ children, pokemon, tabIndex }) => {
     // console.log(pokemon);
 
     const {
@@ -21,8 +24,15 @@ const PokemonCard: FunctionComponent<PokemonCardProps> = ({ children, pokemon })
     } = pokemon;
 
     const pName = name[0].toUpperCase() + name.slice(1);
+
+    const myNavigate = (url: string, params: { [k: string]: string | number } = {}) => {
+        navigate(Object.keys(params).reduce((u, p) => u.replace(`:${p}`, params[p].toString()), url));
+    };
+
+    const nav = () => myNavigate(EMenuLinks.POKEMON, { id: pokemon.id });
+
     return (
-        <div className={s.root}>
+        <div className={s.root} onClick={nav} onKeyUp={nav} role="button" tabIndex={tabIndex}>
             <div className={s.infoWrap}>
                 <Heading size="xs" className={s.titleName}>
                     {pName}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { api, ApiEndpoints, IApiParams } from '../util/api';
+import { api, ApiEndpoints } from '../util/api';
+import { IOptions } from '../interfaces/api';
 
 type useDataResult = {
     data: any;
@@ -7,16 +8,16 @@ type useDataResult = {
     isError: boolean;
 };
 
-function useData(endpoint: ApiEndpoints, options: IApiParams = {}, deps: Array<any> = []): useDataResult {
-    const [data, setData] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
+function useData<T>(endpoint: ApiEndpoints, options: IOptions = {}, deps: Array<any> = []): useDataResult {
+    const [data, setData] = useState<T | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [isError, setIsError] = useState<boolean>(false);
 
     useEffect(() => {
-        const getData = async () => {
+        const getData = async (): Promise<void> => {
             setIsLoading(true);
             try {
-                const resp = await api(endpoint, options);
+                const resp = await api<T>(endpoint, options);
                 setData(resp);
             } catch (e) {
                 setIsError(true);

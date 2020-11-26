@@ -1,22 +1,21 @@
 import Url from 'url';
 import config from '../config';
+import { IOptions } from '../interfaces/api';
 
-export interface IApiParams {
-    [k: string]: string | number;
-}
+export type ApiEndpoints = 'getPokemons' | 'getPokemon';
 
-export type ApiEndpoints = 'getPokemons';
-
-export async function api(endpoint: ApiEndpoints, options: IApiParams = {}): Promise<any> {
+export async function api<T>(endpoint: ApiEndpoints, options: IOptions = {}): Promise<T> {
     const ep = config.client.endpoint[endpoint];
     const srv = config.client.server;
     const isGet = ep.method === 'GET';
 
-    const params = { limit: ep.default_page_size, ...options };
+    const params = JSON.parse(JSON.stringify({ limit: ep.default_page_size, ...options }));
+
+    const urlParams = ep.url_params.map((p: string) => (p && params[p] ? `/${params[p]}` : '')).join('');
 
     const link = Url.format({
         ...srv,
-        pathname: srv.base_url + ep.url.pathname,
+        pathname: srv.base_url + ep.url.pathname + urlParams,
         query: isGet ? params : null,
     });
 
