@@ -1,8 +1,8 @@
 Arguments: 
-  /home/god/.nvm/versions/node/v15.0.1/bin/node /usr/local/bin/yarn run build:prod
+  /home/god/.nvm/versions/node/v15.0.1/bin/node /usr/local/bin/yarn add ───────────────────────────────────────────────────────────────────────────────[/media/J_win/hs/www/study/react_pro]
 
 PATH: 
-  /home/god/.nvm/versions/node/v15.0.1/bin:/home/god/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin:/sbin:/usr/sbin
+  /home/god/.local/bin:/home/god/.nvm/versions/node/v15.0.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin:/sbin:/usr/sbin
 
 Yarn version: 
   1.22.10
@@ -14,12 +14,15 @@ Platform:
   linux x64
 
 Trace: 
-  SyntaxError: /media/J_win/hs/www/study/react_pro/package.json: Unexpected token } in JSON at position 304
-      at JSON.parse (<anonymous>)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+  TypeError [ERR_UNESCAPED_CHARACTERS]: Request path contains unescaped characters
+      at new NodeError (node:internal/errors:258:15)
+      at new ClientRequest (node:_http_client:151:13)
+      at Object.request (node:https:313:10)
+      at Request.module.exports.Request.start (/usr/local/lib/node_modules/yarn/lib/cli.js:141224:32)
+      at Request.module.exports.Request.end (/usr/local/lib/node_modules/yarn/lib/cli.js:141983:10)
+      at end (/usr/local/lib/node_modules/yarn/lib/cli.js:141037:14)
+      at Immediate._onImmediate (/usr/local/lib/node_modules/yarn/lib/cli.js:141051:7)
+      at processImmediate (node:internal/timers:462:21)
 
 npm manifest: 
   {
@@ -28,13 +31,18 @@ npm manifest:
     "description": "This is the project to learn React",
     "main": "index.js",
     "scripts": {
-        "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
-        "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
+      "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
+      "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
+      "start": "env NODE_ENV=development webpack-dev-server"
     },
     "repository": "https://github.com/godlinpz/reactpro_study.git",
     "author": "Dmitry Pavlichenko",
     "license": "MIT",
     "dependencies": {
+      "@types/classnames": "^2.2.11",
+      "@types/react": "^16.9.55",
+      "@types/react-dom": "^16.9.9",
+      "classnames": "^2.2.6",
       "react": "^17.0.1",
       "react-dom": "^17.0.1"
     },
@@ -65,6 +73,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
     integrity sha512-/+CRPXpBDpo2RK9C68N3b2cOvO0Cf5B9aPijHsoDQTHivnGSObdOF2BRQOYjojWTDy6nQvMjmqRXIxH55VjxxA==
   
+  "@types/classnames@^2.2.11":
+    version "2.2.11"
+    resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.11.tgz#2521cc86f69d15c5b90664e4829d84566052c1cf"
+    integrity sha512-2koNhpWm3DgWRp5tpkiJ8JGc1xTn2q0l+jUNUE7oMKXUf5NpI9AIdC4kbjGNFBdHtcxBD18LAksoudAVhFKCjw==
+  
   "@types/glob@^7.1.1":
     version "7.1.3"
     resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.1.3.tgz#e6ba80f36b7daad2c685acd9266382e68985c183"
@@ -92,6 +105,26 @@ Lockfile:
     version "14.14.3"
     resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.3.tgz#e1c09064121f894baaad2bd9f12ce4a41bffb274"
     integrity sha512-33/L34xS7HVUx23e0wOT2V1qPF1IrHgQccdJVm9uXGTB9vFBrrzBtkQymT8VskeKOxjz55MSqMv0xuLq+u98WQ==
+  
+  "@types/prop-types@*":
+    version "15.7.3"
+    resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
+    integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
+  
+  "@types/react-dom@^16.9.9":
+    version "16.9.9"
+    resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.9.tgz#d2d0a6f720a0206369ccbefff752ba37b9583136"
+    integrity sha512-jE16FNWO3Logq/Lf+yvEAjKzhpST/Eac8EMd1i4dgZdMczfgqC8EjpxwNgEe3SExHYLliabXDh9DEhhqnlXJhg==
+    dependencies:
+      "@types/react" "*"
+  
+  "@types/react@*", "@types/react@^16.9.55":
+    version "16.9.55"
+    resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.55.tgz#47078587f5bfe028a23b6b46c7b94ac0d436acff"
+    integrity sha512-6KLe6lkILeRwyyy7yG9rULKJ0sXplUsl98MGoCfpteXf9sPWFWWMknDcsvubcpaTdBuxtsLF6HDUwdApZL/xIg==
+    dependencies:
+      "@types/prop-types" "*"
+      csstype "^3.0.2"
   
   "@types/source-list-map@*":
     version "0.1.2"
@@ -923,6 +956,11 @@ Lockfile:
       isobject "^3.0.0"
       static-extend "^0.1.1"
   
+  classnames@^2.2.6:
+    version "2.2.6"
+    resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+    integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
+  
   clean-css@^4.2.3:
     version "4.2.3"
     resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
@@ -1199,6 +1237,11 @@ Lockfile:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
     integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
+  
+  csstype@^3.0.2:
+    version "3.0.4"
+    resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.4.tgz#b156d7be03b84ff425c9a0a4b1e5f4da9c5ca888"
+    integrity sha512-xc8DUsCLmjvCfoD7LTGE0ou2MIWLx0K9RCZwSHMOdynqRsP4MtUcLeqh1HcQ2dInwDTqn+3CE0/FZh1et+p4jA==
   
   currently-unhandled@^0.4.1:
     version "0.4.1"
