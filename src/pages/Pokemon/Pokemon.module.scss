@@ -1,0 +1,16 @@
+@import '../../variables';
+
+.root {
+    padding: 65px 75px;
+}
+
+.title {
+    text-align: center;
+}
+
+.pokedex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}

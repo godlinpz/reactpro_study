@@ -1,31 +1,78 @@
 {
-  "name": "ReactPro",
-  "version": "1.0.0",
-  "description": "This is the project to learn React",
-  "main": "index.js",
-  "scripts": {
-    "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
-    "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
-    "start": "env NODE_ENV=development webpack-dev-server"
-  },
-  "repository": "https://github.com/godlinpz/reactpro_study.git",
-  "author": "Dmitry Pavlichenko",
-  "license": "MIT",
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
-  },
-  "devDependencies": {
-    "css-loader": "^5.0.0",
-    "html-webpack-plugin": "^4.5.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.4",
-    "style-loader": "^2.0.0",
-    "ts-loader": "^8.0.6",
-    "typescript": "^4.0.3",
-    "webpack": "4.44.2",
-    "webpack-cli": "3.3.12",
-    "webpack-dev-server": "^3.11.0"
-  }
+    "name": "reactpro",
+    "version": "1.0.0",
+    "description": "This is the project to learn React",
+    "main": "index.js",
+    "scripts": {
+        "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
+        "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
+        "start": "env NODE_ENV=development webpack-dev-server",
+        "lint": "yarn eslint -c eslintrc.js ./src"
+    },
+    "repository": "https://github.com/godlinpz/reactpro_study.git",
+    "author": "Dmitry Pavlichenko",
+    "license": "MIT",
+    "dependencies": {
+        "@hapi/hapi": "^20.0.3",
+        "@hapi/inert": "^6.0.3",
+        "classnames": "^2.2.6",
+        "handlebars": "^4.7.6",
+        "hookrouter": "^1.2.3",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "url": "^0.11.0"
+    },
+    "devDependencies": {
+        "@svgr/webpack": "^5.4.0",
+        "@types/classnames": "^2.2.11",
+        "@types/hookrouter": "^2.2.3",
+        "@types/jest": "^26.0.15",
+        "@types/node-sass": "^4.11.1",
+        "@types/react": "^16.9.55",
+        "@types/react-dom": "^16.9.9",
+        "@typescript-eslint/eslint-plugin": "^4.7.0",
+        "@typescript-eslint/parser": "^4.7.0",
+        "css-loader": "^5.0.0",
+        "css-modules-typescript-loader": "^4.0.1",
+        "eslint": "^7.13.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-config-prettier": "^6.15.0",
+        "eslint-config-react-app": "^6.0.0",
+        "eslint-import-resolver-webpack": "^0.13.0",
+        "eslint-plugin-flowtype": "^5.2.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.21.5",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "file-loader": "^6.2.0",
+        "html-webpack-plugin": "^4.5.0",
+        "husky": "^4.3.0",
+        "jest": "^26.6.3",
+        "lint-staged": "^10.5.1",
+        "node-sass": "^4.14.1",
+        "prettier": "^2.1.2",
+        "pretty-quick": "^3.1.0",
+        "sass-loader": "^10.0.4",
+        "style-loader": "^2.0.0",
+        "ts-jest": "^26.4.4",
+        "ts-loader": "^8.0.6",
+        "typescript": "^4.0.3",
+        "url-loader": "^4.1.1",
+        "webpack": "4.44.2",
+        "webpack-cli": "3.3.12",
+        "webpack-dev-server": "^3.11.0",
+        "webpack-node-externals": "^2.5.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx,json,css}": [
+            "yarn pretty-quick --staged",
+            "yarn lint"
+        ]
+    }
 }
