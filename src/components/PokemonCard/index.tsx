@@ -6,6 +6,7 @@ import { EMenuLinks } from '../../routes';
 import Heading from '../Heading';
 
 import s from './PokemonCard.module.scss';
+import capitalizeFirstLetter from '../../util/capitalizeFirstLetter';
 
 interface PokemonCardProps {
     pokemon: any;
@@ -23,7 +24,7 @@ const PokemonCard: FunctionComponent<PokemonCardProps> = ({ children, pokemon, t
         // abilities, base_experience, height, id, weight
     } = pokemon;
 
-    const pName = name[0].toUpperCase() + name.slice(1);
+    const pName = capitalizeFirstLetter(name);
 
     const myNavigate = (url: string, params: { [k: string]: string | number } = {}) => {
         navigate(Object.keys(params).reduce((u, p) => u.replace(`:${p}`, params[p].toString()), url));
