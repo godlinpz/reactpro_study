@@ -17,7 +17,7 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': 'error',
         'no-shadow': 'off',
         '@typescript-eslint/no-shadow': 'error',
-        'no-console': 'error',
+        'no-console': 'warn',
         'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx', '.ts', '.js'] }],
         'import/extensions': [
             'error',
@@ -32,6 +32,7 @@ module.exports = {
     },
     settings: {
         'import/resolver': {
+            node: {},
             webpack: {
                 config: 'webpack.config.js',
             },
